@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hector's Weather API use </title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+
+    <link rel="stylesheet" type="text/css" href="Assets/css/style.css" />
+</head>
+    <header>
+        <h1 class="text-center">Weather Dashboard</h1>
+    </header>
+
+<body class="container-fluid">
+    <aside class="col-sm-2" id="left-hand-info">
+        <form id="Search-stuff">
+            <h2>Search For a City: </h2>
+            <textarea id="userInput"> Default </textarea>
+            <button id="search"> Search! </button>
+            <hr>
+            <section id="popular" class="vertical">
+                <button id="Austin"> Austin</button>
+                <button id="Chicago">Chicago</button>
+                <button id="NY">New York</button>
+                <button id="Orlando">Orlando</button>
+                <button id="SF">San Francisco</button>
+                <button id="Seattle">Seattle</button>
+                <button id="Denver">Denver</button>
+                <button id="Atlanta">Atlanta</button>
+            </section>
+
+        </form>
+        <div id="sample-cities">
+
+        </div>
+
+    </aside>
+    <section class="col-sm-10" id="right-hand-side">
+        <section id="city-information">
+            <h2> Searched City (MM/DD/YYYY)</h2>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+            <p>UV Index:</p>
+        </section>
+        <section id="5-days">
+            <h4>5-Day Forecast:</h4>
+            <section id = "cards" class="row">
+                <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Date</h5>
+                            <p class="card-text" id="Temp">Temp:</p>
+                            <p class="card-text" id="Wind">Wind:</p>
+                            <p class="card-text" id="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Date</h5>
+                            <p class="card-text" id="Temp">Temp:</p>
+                            <p class="card-text" id="Wind">Wind:</p>
+                            <p class="card-text" id="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Date</h5>
+                            <p class="card-text" id="Temp">Temp:</p>
+                            <p class="card-text" id="Wind">Wind:</p>
+                            <p class="card-text" id="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Date</h5>
+                            <p class="card-text" id="Temp">Temp:</p>
+                            <p class="card-text" id="Wind">Wind:</p>
+                            <p class="card-text" id="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                 </div>
+                 <div class="col-sm-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Date</h5>
+                            <p class="card-text" id="Temp">Temp:</p>
+                            <p class="card-text" id="Wind">Wind:</p>
+                            <p class="card-text" id="Humidity">Humidity:</p>
+                        </div>
+                    </div>
+                 </div>
+                </div>
+            </section>"
+
+
+        </section>
+
+    </section>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>    <link rel="stylesheet" type="text/css" href="Assets/css/defaults.css" />
+</body>
+
+</html>

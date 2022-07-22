@@ -1,0 +1,34 @@
+html {
+  width: 1024px;
+  height: 768px;
+}
+
+header {
+  background: linear-gradient(175deg, teal, rgb(252, 1, 231) 50%, purple);
+}
+
+textarea {
+width: 100%;
+resize: none;
+}
+
+
+button {
+  display:flex;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: rgb(222, 222, 222);
+}
+
+#cards {
+  display:
+}
+
+#city-information {
+  width: 100%;
+  background-color: black;
+  height: 50%;
+  color: palegoldenrod;
+}
