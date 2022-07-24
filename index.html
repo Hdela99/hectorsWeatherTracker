@@ -24,17 +24,17 @@
         <form id="Search-stuff">
             <h2>Search For a City: </h2>
             <textarea id="userInput"> Default </textarea>
-            <button id="search"> Search! </button>
+            <button type="button" id="search"> Search! </button>
             <hr>
             <section id="popular" class="vertical">
-                <button id="Austin"> Austin</button>
-                <button id="Chicago">Chicago</button>
-                <button id="NY">New York</button>
-                <button id="Orlando">Orlando</button>
-                <button id="SF">San Francisco</button>
-                <button id="Seattle">Seattle</button>
-                <button id="Denver">Denver</button>
-                <button id="Atlanta">Atlanta</button>
+                <button type="button" id="Austin"> Austin</button>
+                <button type="button" id="Chicago">Chicago</button>
+                <button type="button" id="NY">New York</button>
+                <button type="button" id="Orlando">Orlando</button>
+                <button type="button" id="SF">San Francisco</button>
+                <button type="button" id="Seattle">Seattle</button>
+                <button type="button" id="Denver">Denver</button>
+                <button type="button" id="Atlanta">Atlanta</button>
             </section>
 
         </form>
@@ -44,68 +44,69 @@
 
     </aside>
     <section class="col-sm-10" id="right-hand-side">
-        <section id="city-information">
-            <h2> Searched City (MM/DD/YYYY)</h2>
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
-            <p>UV Index:</p>
+        <h1 id="neverHidden">Your search results: </h1>
+        <section id="city-container">
+            <h2 id="city-info-title"> Searched City (MM/DD/YYYY)</h2>
+            <p id="city-temp">Temp:</p>
+            <p id="city-wind">Wind:</p>
+            <p id="city-humidity">Humidity:</p>
+            <p id="city-uv">UV Index:</p>
         </section>
         <section id="5-days">
             <h4>5-Day Forecast:</h4>
             <section id = "cards" class="row">
-                <div class="col-sm-2">
+                <div id="dayOne"class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Date</h5>
-                            <p class="card-text" id="Temp">Temp:</p>
-                            <p class="card-text" id="Wind">Wind:</p>
-                            <p class="card-text" id="Humidity">Humidity:</p>
+                            <h5 class="card-title text-left" id="day-1">Date</h5>
+                            <p class="card-text" id="Temp-1">Temp:</p>
+                            <p class="card-text" id="Wind-1">Wind:</p>
+                            <p class="card-text" id="Humidity-1">Humidity:</p>
                         </div>
                     </div>
                  </div>
-                 <div class="col-sm-2">
+                 <div id="dayTwo" class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Date</h5>
-                            <p class="card-text" id="Temp">Temp:</p>
-                            <p class="card-text" id="Wind">Wind:</p>
-                            <p class="card-text" id="Humidity">Humidity:</p>
+                            <h5 class="card-title text-left" id="day-2">Date</h5>
+                            <p class="card-text" id="Temp-2">Temp:</p>
+                            <p class="card-text" id="Wind-2">Wind:</p>
+                            <p class="card-text" id="Humidity-2">Humidity:</p>
                         </div>
                     </div>
                  </div>
-                 <div class="col-sm-2">
+                 <div id="dayThree" class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Date</h5>
-                            <p class="card-text" id="Temp">Temp:</p>
-                            <p class="card-text" id="Wind">Wind:</p>
-                            <p class="card-text" id="Humidity">Humidity:</p>
+                            <h5 class="card-title text-left" id="day-3">Date</h5>
+                            <p class="card-text" id="Temp-3">Temp:</p>
+                            <p class="card-text" id="Wind-3">Wind:</p>
+                            <p class="card-text" id="Humidity-3">Humidity:</p>
                         </div>
                     </div>
                  </div>
-                 <div class="col-sm-2">
+                 <div id="dayFour" class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Date</h5>
-                            <p class="card-text" id="Temp">Temp:</p>
-                            <p class="card-text" id="Wind">Wind:</p>
-                            <p class="card-text" id="Humidity">Humidity:</p>
+                            <h5 class="card-title text-left" id="day-4">Date</h5>
+                            <p class="card-text" id="Temp-4">Temp:</p>
+                            <p class="card-text" id="Wind-4">Wind:</p>
+                            <p class="card-text" id="Humidity-4">Humidity:</p>
                         </div>
                     </div>
                  </div>
-                 <div class="col-sm-2">
+                 <div id="dayFive" class="col-sm-2">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title text-center">Date</h5>
-                            <p class="card-text" id="Temp">Temp:</p>
-                            <p class="card-text" id="Wind">Wind:</p>
-                            <p class="card-text" id="Humidity">Humidity:</p>
+                            <h5 class="card-title text-left" id="day-5">Date</h5>
+                            <p class="card-text" id="Temp-5">Temp:</p>
+                            <p class="card-text" id="Wind-5">Wind:</p>
+                            <p class="card-text" id="Humidity-5">Humidity:</p>
                         </div>
                     </div>
                  </div>
                 </div>
-            </section>"
+            </section>
 
 
         </section>
@@ -113,6 +114,11 @@
     </section>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>    <link rel="stylesheet" type="text/css" href="Assets/css/defaults.css" />
-</body>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
+    <script src="./Assets/js/script.js"></script>
 
+</body>
 </html>
