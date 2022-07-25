@@ -71,8 +71,11 @@ var humidity5El = $(`#Humidity-5`);
 }
 
 $(`button`).click(function(event){
-    let txt = event.target.innerText;
-        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${txt}&units=imperial&appid=${APIkey}`)
+    console.log($(this).css('background-color'));
+    console.log(this.id);
+    console.log(this.id);
+    if(this.id == 'search'){
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${textAreaEl.val()}&units=imperial&appid=${APIkey}`)
         .then(function (response) {
             return response.json();
         })
@@ -82,10 +85,46 @@ $(`button`).click(function(event){
             cityTempEl.text(`Temp: ${data.list[0].main.temp}`);
             cityInformation.text(`${data.city.name} ` + moment().format('dddd, MMMM Do YYYY'))
             cityWindEl.text(`Wind: ${data.list[0].wind.speed}`)
-            console.log(data);
-            console.log(data.city.name);
-            console.log(data.list[0].dt)
+            $(".card-body").each(function(){ 
+                //  this.html("");
+                $(this).empty();
+                   var i = 1; 
+                   var createDateEl = $(`<h5>`);
+                   createDateEl.addClass("card-title text-left");
+                   createDateEl.attr("id", "day-" + i );
+                   createDateEl.text(`${data.list[i*4].dt_txt}`);
+                   console.log(createDateEl);
+                   $(this).append(createDateEl);
+  
+                   var createTempEl = $(`<p>`);
+                   createTempEl.addClass("card-text").attr("id", "Temp-" + i).text(`Temp: ${data.list[i*4].main.temp}`);
+                   $(this).append(createTempEl);
+  
+                   var createWindEl = $(`<p>`);
+                   createWindEl.addClass("card-text").attr("id", "Wind-" + i).text(`Wind: ${data.list[i*4].wind.speed}`);
+                   $(this).append(createWindEl);
+  
+                   var createHumidityEl = $(`<p>`);
+                   createHumidityEl.addClass("card-text").attr("id", "Humidity-" + i).text(`Humidity: ${data.list[i*4].main.humidity}%`);
+                   $(this).append(createHumidityEl);
+                   i++
+                   console.log(i);
+               })
+    })
+}else{
+    let txt = event.target.innerText;
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${txt}&units=imperial&appid=${APIkey}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            cityHumidityEl.text(`Humidity: ${data.list[3].main.humidity} `)
+            cityTempEl.text(`Temp: ${data.list[0].main.temp}`);
+            cityInformation.text(`${data.city.name} ` + moment().format('dddd, MMMM Do YYYY'))
+            cityWindEl.text(`Wind: ${data.list[0].wind.speed}`)
              $(".card-body").each(function(){ 
+              //  this.html("");
+              $(this).empty();
                  var i = 1; 
                  var createDateEl = $(`<h5>`);
                  createDateEl.addClass("card-title text-left");
@@ -110,13 +149,7 @@ $(`button`).click(function(event){
              })
             
         })
-
-        // var cityInformation = $(`#city-info-title`);
-        // var cityTempEl = $(`#city-temp`);
-        // var cityWindEl = $(`#city-wind`);
-        // var cityHumidityEl = $(`#city-humidity`);
-        // var cityUvEl = $(`#city-uv`);
-        // var cityContainerEl = $(`#city-container`);
+}
                 
     })
 

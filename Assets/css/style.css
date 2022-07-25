@@ -21,6 +21,11 @@ button {
   padding: 5px;
   margin-top: 5px;
   background-color: rgb(222, 222, 222);
+  text-align: center;
+}
+
+#search {
+  background-color: rgb(0, 193, 193);
 }
 
 
