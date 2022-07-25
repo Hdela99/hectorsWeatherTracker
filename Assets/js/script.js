@@ -48,27 +48,6 @@ var temp5El = $(`#Temp-5`);
 var wind5El = $(`#Wind-5`);
 var humidity5El = $(`#Humidity-5`);
 
- function tester(){
-    var daysEl = $(`#cards`);
-     //creation of card elements. 
-    for( var i=0; i<6; i++){
-        var divCreateEl = $(`<div>`);
-        divCreateEl.attr("id", "day-" + i);
-        divCreateEl.addClass("col-sm-2");
-
-        var cardCreateEl = $(`<div>`);
-        cardCreateEl.addClass("card");
-
-        var cardBodyEl = $(`<div>`);
-        cardBodyEl.addClass("card-body");
-
-         cardCreateEl.append(cardBodyEl);
-
-        divCreateEl.append(cardCreateEl);
-
-        daysEl.append(divCreateEl);
-    }
-}
 
 $(`button`).click(function(event){
     console.log($(this).css('background-color'));
@@ -122,30 +101,27 @@ $(`button`).click(function(event){
             cityTempEl.text(`Temp: ${data.list[0].main.temp}`);
             cityInformation.text(`${data.city.name} ` + moment().format('dddd, MMMM Do YYYY'))
             cityWindEl.text(`Wind: ${data.list[0].wind.speed}`)
-             $(".card-body").each(function(){ 
+             $(".card-body").each(function(index){ 
               //  this.html("");
               $(this).empty();
-                 var i = 1; 
                  var createDateEl = $(`<h5>`);
                  createDateEl.addClass("card-title text-left");
-                 createDateEl.attr("id", "day-" + i );
-                 createDateEl.text(`${data.list[i*4].dt_txt}`);
+                 createDateEl.attr("id", "day-" + index );
+                 createDateEl.text(`${data.list[(index +1)*7].dt_txt}`);
                  console.log(createDateEl);
                  $(this).append(createDateEl);
 
                  var createTempEl = $(`<p>`);
-                 createTempEl.addClass("card-text").attr("id", "Temp-" + i).text(`Temp: ${data.list[i*4].main.temp}`);
+                 createTempEl.addClass("card-text").attr("id", "Temp-" + index).text(`Temp: ${data.list[index*7].main.temp}`);
                  $(this).append(createTempEl);
 
                  var createWindEl = $(`<p>`);
-                 createWindEl.addClass("card-text").attr("id", "Wind-" + i).text(`Wind: ${data.list[i*4].wind.speed}`);
+                 createWindEl.addClass("card-text").attr("id", "Wind-" + index).text(`Wind: ${data.list[index*7].wind.speed}`);
                  $(this).append(createWindEl);
 
                  var createHumidityEl = $(`<p>`);
-                 createHumidityEl.addClass("card-text").attr("id", "Humidity-" + i).text(`Humidity: ${data.list[i*4].main.humidity}%`);
+                 createHumidityEl.addClass("card-text").attr("id", "Humidity-" + index).text(`Humidity: ${data.list[index*7].main.humidity}%`);
                  $(this).append(createHumidityEl);
-                 i++
-                 console.log(i);
              })
             
         })
