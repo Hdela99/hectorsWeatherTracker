@@ -2,4 +2,4 @@ Hello. This is my weather tracker. You are able to select one of the pre-destine
 
 Access to the github repository: https://github.com/Hdela99/hectorsWeatherTracker
 Link to the live site: https://hdela99.github.io/hectorsWeatherTracker/
-Screenshot: image.png
+Screenshot: ![image](https://user-images.githubusercontent.com/105886672/181173765-e467e18e-9cf6-4ac4-bac1-dc361dfd820c.png)
