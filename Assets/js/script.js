@@ -26,19 +26,15 @@ $(`button`).click(function(event){
     if(this.id == 'search'){
         fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${textAreaEl.val()}&units=imperial&appid=${APIkey}`)
         .then(function (response) {
-            console.log(response.status);
             if(!response.ok){
                 alert("Please input a valid city");
             }
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var lat = `${data.city.coord.lat}`;
-            console.log(lat);
             var lon = `${data.city.coord.lon}`;
-            console.log(lon);
-            uviCatcher(lat, lon);
+            // uviCatcher(lat, lon);
             var backIcon = `${data.list[0].weather[0].icon}`
             cityContainerEl.css({'background-image': 'url(http://openweathermap.org/img/wn/' + backIcon + '.png)', 
             'background-repeat': 'no-repeat',
@@ -48,21 +44,32 @@ $(`button`).click(function(event){
             cityTempEl.text(`Temp: ${data.list[0].main.temp}`);
             cityInformation.text(`${data.city.name} ` + moment().format('dddd, MMMM Do YYYY'))
             cityWindEl.text(`Wind: ${data.list[0].wind.speed}`)
-            cityUvEl.text(`UV: ` );
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={}&appid=${APIkey}`)
+            .then(function (response2) {
+                console.log(response2.status);
+                if(!response2.ok){
+                    alert("Please input a valid city");
+                }
+                return response2.json();
+            })
+            .then(function (data2) {
+                console.log(data2);
+                console.log(`${data2.current.uvi}`)
+                let x = `${data2.current.uvi}`;
+                console.log(typeof(x));
+                cityUvEl.text(`UV Index: ${data2.current.uvi}`) ;
+            })
             $(".card-body").each(function(index){ 
                 $(this).empty();
                    var createDateEl = $(`<h5>`);
                    createDateEl.addClass("card-title text-left");
                    createDateEl.attr("id", "day-" + (index +1) );
                    createDateEl.text(`${data.list[(index +1)*7].dt_txt}`);
-                   console.log(createDateEl);
                    $(this).append(createDateEl);
 
                    var createIconEl = $(`<img>`);
                    var iconcode = `${data.list[(index+1)*7].weather[0].icon}`;
-                   console.log(iconcode);
                    var iconurl = 'http://openweathermap.org/img/wn/' +iconcode+'.png';
-                   console.log(iconurl);
                    createIconEl.addClass("img-fluid").attr('src', iconurl).attr('alt', 'weather-icon').attr("id", "Icon-"+(index+1));
                    $(this).append(createIconEl);
   
@@ -87,15 +94,33 @@ $(`button`).click(function(event){
             return response.json();
         })
         .then(function (data) {
+            var lat = `${data.city.coord.lat}`;
+            var lon = `${data.city.coord.lon}`;
+            // uviCatcher(lat, lon);
             var backIcon = `${data.list[0].weather[0].icon}`
-            console.log(data);
+            cityContainerEl.css({'background-image': 'url(http://openweathermap.org/img/wn/' + backIcon + '.png)', 
+            'background-repeat': 'no-repeat',
+            'background-position' : 'center top'});
+            cityUvEl.text();
             cityHumidityEl.text(`Humidity: ${data.list[0].main.humidity}% `)
             cityTempEl.text(`Temp: ${data.list[0].main.temp}`);
             cityInformation.text(`${data.city.name} ` + moment().format('dddd, MMMM Do YYYY'))
             cityWindEl.text(`Wind: ${data.list[0].wind.speed}`)
-            cityContainerEl.css({'background-image': 'url(http://openweathermap.org/img/wn/' + backIcon + '.png)', 
-            'background-repeat': 'no-repeat',
-            'background-position' : 'center top'});
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude={}&appid=${APIkey}`)
+            .then(function (response2) {
+                console.log(response2.status);
+                if(!response2.ok){
+                    alert("Please input a valid city");
+                }
+                return response2.json();
+            })
+            .then(function (data2) {
+                console.log(data2);
+                console.log(`${data2.current.uvi}`)
+                let x = `${data2.current.uvi}`;
+                console.log(typeof(x));
+                cityUvEl.text(`UV Index: ${data2.current.uvi}`) ;
+            })
              $(".card-body").each(function(index){ 
               //  this.html("");
               $(this).empty();
@@ -103,14 +128,11 @@ $(`button`).click(function(event){
                  createDateEl.addClass("card-title text-left");
                  createDateEl.attr("id", "day-" + (index +1) );
                  createDateEl.text(`${data.list[(index +1)*7].dt_txt}`);
-                 console.log(createDateEl);
                  $(this).append(createDateEl);
 
                  var createIconEl = $(`<img>`);
                  var iconcode = `${data.list[(index+1)*7].weather[0].icon}`;
-                 console.log(iconcode);
                  var iconurl = 'http://openweathermap.org/img/wn/' +iconcode+'.png';
-                 console.log(iconurl);
                  createIconEl.addClass("img-fluid").attr('src', iconurl).attr('alt', 'weather-icon').attr("id", "Icon-"+(index+1));
                  $(this).append(createIconEl);
 
@@ -143,5 +165,9 @@ function uviCatcher(lat, lon){
     })
     .then(function (data2) {
         console.log(data2);
+        console.log(`${data2.current.uvi}`)
+        let x = `${data2.current.uvi}`;
+        console.log(typeof(x));
+        return "`${data2.current.uvi}`" ;
     })
 }
